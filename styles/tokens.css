@@ -1,0 +1,210 @@
+/* Design Tracker — design tokens.
+   Dark is the default when the OS prefers dark; [data-theme] on <html> forces a theme.
+   The project accent is injected at runtime as --accent-base (see app/store.js). */
+
+:root {
+  --accent-base: #7c9cff;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --fs-11: 11px; --fs-12: 12px; --fs-13: 13px; --fs-14: 14px; --fs-15: 15px;
+  --fs-16: 16px; --fs-18: 18px; --fs-20: 20px; --fs-24: 24px; --fs-30: 30px;
+
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-10: 40px; --s-12: 48px;
+
+  --r-ctl: 6px;
+  --r-card: 10px;
+  --r-pill: 999px;
+
+  --topbar-h: 48px;
+  --tabbar-h: 41px;
+  --header-h: calc(var(--topbar-h) + var(--tabbar-h));
+
+  --t-fast: 90ms;
+  --t-med: 140ms;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+
+  color-scheme: light;
+
+  /* ---------- light ---------- */
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #f2f4f7;
+  --surface-3: #e8ebf0;
+  --surface-sunk: #eef0f3;
+  --hover: rgba(20, 30, 50, .045);
+  --active: rgba(20, 30, 50, .08);
+  --border: rgba(16, 24, 40, .105);
+  --border-strong: rgba(16, 24, 40, .18);
+  --text: #14171c;
+  --text-2: #4a5160;
+  --text-3: #687080;
+  --text-inv: #ffffff;
+  --overlay-scrim: rgba(18, 22, 30, .38);
+  --shadow-pop: 0 1px 2px rgba(16, 24, 40, .06), 0 8px 24px rgba(16, 24, 40, .12);
+  --shadow-modal: 0 2px 4px rgba(16, 24, 40, .06), 0 24px 64px rgba(16, 24, 40, .22);
+
+  --accent: color-mix(in oklab, var(--accent-base) 70%, #0a1030);
+  --accent-ink: #ffffff;
+  --accent-soft: color-mix(in oklab, var(--accent-base) 13%, transparent);
+  --accent-line: color-mix(in oklab, var(--accent-base) 55%, transparent);
+  --focus: color-mix(in oklab, var(--accent-base) 72%, #0a1030);
+
+  --checker-a: #ffffff;
+  --checker-b: #e6e8ec;
+  --stage-dark: #17191d;
+  --stage-light: #f4f5f7;
+
+  /* status: fill (bars, dots, icons), ink (text on tinted bg), bg (pill) */
+  --st-pending: #b97a06;
+  --st-pending-ink: #8a4f00;
+  --st-needs: #dc4040;
+  --st-needs-ink: #b42323;
+  --st-replaced: #7462e8;
+  --st-replaced-ink: #4d39c9;
+  --st-approved: #1f8a57;
+  --st-approved-ink: #146c41;
+  --st-pending-bg: color-mix(in oklab, var(--st-pending) 15%, var(--surface));
+  --st-needs-bg: color-mix(in oklab, var(--st-needs) 12%, var(--surface));
+  --st-replaced-bg: color-mix(in oklab, var(--st-replaced) 12%, var(--surface));
+  --st-approved-bg: color-mix(in oklab, var(--st-approved) 13%, var(--surface));
+  --st-none: #c4c8d0;
+
+  --ok: #146c41; --warn: #8a4f00; --bad: #b42323; --info: #3157c9;
+  --ok-bg: color-mix(in oklab, #24a067 12%, var(--surface));
+  --warn-bg: color-mix(in oklab, #d18a0e 14%, var(--surface));
+  --bad-bg: color-mix(in oklab, #dc4040 11%, var(--surface));
+  --info-bg: color-mix(in oklab, #4c74e8 11%, var(--surface));
+
+  /* charts (dataviz reference palette, light steps) */
+  --chart-surface: var(--surface);
+  --grid: #e3e5ea;
+  --axis: #c3c7cf;
+  --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a;
+  --series-4: #eda100; --series-5: #e87ba4; --series-6: #008300;
+  --heat-lo: #f3f6fd; --heat-hi: #9ec5f4;
+  --bar-fill: color-mix(in oklab, var(--series-1) 26%, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0f1013;
+    --surface: #16181c;
+    --surface-2: #1c1f24;
+    --surface-3: #252830;
+    --surface-sunk: #121417;
+    --hover: rgba(255, 255, 255, .04);
+    --active: rgba(255, 255, 255, .075);
+    --border: rgba(255, 255, 255, .085);
+    --border-strong: rgba(255, 255, 255, .15);
+    --text: #e8eaef;
+    --text-2: #a6acb8;
+    --text-3: #838a97;
+    --text-inv: #0f1013;
+    --overlay-scrim: rgba(5, 6, 8, .62);
+    --shadow-pop: 0 0 0 1px rgba(255, 255, 255, .06), 0 10px 30px rgba(0, 0, 0, .45);
+    --shadow-modal: 0 0 0 1px rgba(255, 255, 255, .07), 0 28px 80px rgba(0, 0, 0, .6);
+
+    --accent: var(--accent-base);
+    --accent-ink: #0d1020;
+    --accent-soft: color-mix(in oklab, var(--accent-base) 16%, transparent);
+    --accent-line: color-mix(in oklab, var(--accent-base) 60%, transparent);
+    --focus: var(--accent-base);
+
+    --checker-a: #2a2d33;
+    --checker-b: #212328;
+    --stage-dark: #0b0c0e;
+    --stage-light: #e9ebee;
+
+    --st-pending: #eab04a;
+    --st-pending-ink: #f2c06a;
+    --st-needs: #f06c6c;
+    --st-needs-ink: #f78e8e;
+    --st-replaced: #9a8bff;
+    --st-replaced-ink: #b4a9ff;
+    --st-approved: #46c28a;
+    --st-approved-ink: #6dd6a4;
+    --st-pending-bg: color-mix(in oklab, var(--st-pending) 14%, var(--surface));
+    --st-needs-bg: color-mix(in oklab, var(--st-needs) 14%, var(--surface));
+    --st-replaced-bg: color-mix(in oklab, var(--st-replaced) 15%, var(--surface));
+    --st-approved-bg: color-mix(in oklab, var(--st-approved) 13%, var(--surface));
+    --st-none: #3a3e46;
+
+    --ok: #6dd6a4; --warn: #f2c06a; --bad: #f78e8e; --info: #9db4ff;
+    --ok-bg: color-mix(in oklab, #46c28a 13%, var(--surface));
+    --warn-bg: color-mix(in oklab, #eab04a 13%, var(--surface));
+    --bad-bg: color-mix(in oklab, #f06c6c 13%, var(--surface));
+    --info-bg: color-mix(in oklab, #7c9cff 13%, var(--surface));
+
+    --grid: #25282e;
+    --axis: #3a3e46;
+    --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70;
+    --series-4: #c98500; --series-5: #d55181; --series-6: #008300;
+    --heat-lo: #1a1e27; --heat-hi: #1c4f95;
+    --bar-fill: color-mix(in oklab, var(--series-1) 34%, transparent);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1013;
+  --surface: #16181c;
+  --surface-2: #1c1f24;
+  --surface-3: #252830;
+  --surface-sunk: #121417;
+  --hover: rgba(255, 255, 255, .04);
+  --active: rgba(255, 255, 255, .075);
+  --border: rgba(255, 255, 255, .085);
+  --border-strong: rgba(255, 255, 255, .15);
+  --text: #e8eaef;
+  --text-2: #a6acb8;
+  --text-3: #838a97;
+  --text-inv: #0f1013;
+  --overlay-scrim: rgba(5, 6, 8, .62);
+  --shadow-pop: 0 0 0 1px rgba(255, 255, 255, .06), 0 10px 30px rgba(0, 0, 0, .45);
+  --shadow-modal: 0 0 0 1px rgba(255, 255, 255, .07), 0 28px 80px rgba(0, 0, 0, .6);
+
+  --accent: var(--accent-base);
+  --accent-ink: #0d1020;
+  --accent-soft: color-mix(in oklab, var(--accent-base) 16%, transparent);
+  --accent-line: color-mix(in oklab, var(--accent-base) 60%, transparent);
+  --focus: var(--accent-base);
+
+  --checker-a: #2a2d33;
+  --checker-b: #212328;
+  --stage-dark: #0b0c0e;
+  --stage-light: #e9ebee;
+
+  --st-pending: #eab04a;
+  --st-pending-ink: #f2c06a;
+  --st-needs: #f06c6c;
+  --st-needs-ink: #f78e8e;
+  --st-replaced: #9a8bff;
+  --st-replaced-ink: #b4a9ff;
+  --st-approved: #46c28a;
+  --st-approved-ink: #6dd6a4;
+  --st-pending-bg: color-mix(in oklab, var(--st-pending) 14%, var(--surface));
+  --st-needs-bg: color-mix(in oklab, var(--st-needs) 14%, var(--surface));
+  --st-replaced-bg: color-mix(in oklab, var(--st-replaced) 15%, var(--surface));
+  --st-approved-bg: color-mix(in oklab, var(--st-approved) 13%, var(--surface));
+  --st-none: #3a3e46;
+
+  --ok: #6dd6a4; --warn: #f2c06a; --bad: #f78e8e; --info: #9db4ff;
+  --ok-bg: color-mix(in oklab, #46c28a 13%, var(--surface));
+  --warn-bg: color-mix(in oklab, #eab04a 13%, var(--surface));
+  --bad-bg: color-mix(in oklab, #f06c6c 13%, var(--surface));
+  --info-bg: color-mix(in oklab, #7c9cff 13%, var(--surface));
+
+  --grid: #25282e;
+  --axis: #3a3e46;
+  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70;
+  --series-4: #c98500; --series-5: #d55181; --series-6: #008300;
+  --heat-lo: #1a1e27; --heat-hi: #1c4f95;
+  --bar-fill: color-mix(in oklab, var(--series-1) 34%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --t-fast: 0ms; --t-med: 0ms; }
+}

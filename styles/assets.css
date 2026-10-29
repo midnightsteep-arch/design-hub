@@ -1,0 +1,100 @@
+/* Assets section (as-*): overview cards, group page, embeds, detail extras. Builds on app.css (.agroup, .arow, .detail, .stage…). */
+
+.as-head { margin-bottom: 16px; }
+.as-head .page-sub { overflow-wrap: anywhere; }
+.as-eyebrow a { color: var(--text-3); }
+.as-eyebrow a:hover { color: var(--accent); }
+.as-head-actions { flex: 0 1 340px; min-width: 0; }
+.as-head-actions .as-search { max-width: none; width: 100%; }
+.as-filter-row .as-search { max-width: 320px; }
+.as-view .review-progress { margin: 0 0 14px; }
+.as-view .agroup-hub { margin-bottom: 18px; }
+.as-view > .agroup { margin-top: 0; }
+
+/* overview: group cards */
+.as-groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-bottom: 24px; }
+.as-group-card { display: flex; flex-direction: column; gap: 10px; color: var(--text); text-decoration: none !important;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast), opacity var(--t-fast); }
+.as-groups .card + .card { margin-top: 0; }
+.as-group-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-pop); transform: translateY(-1px); }
+.as-group-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.as-group-card.is-dim { opacity: .55; }
+.as-gc-head { display: flex; align-items: center; gap: 10px; }
+.as-gc-icon { width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); flex: none; }
+.as-gc-title { flex: 1; min-width: 0; font-weight: 600; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.as-gc-pct { font-size: 12px; color: var(--text-2); }
+.as-gc-desc { margin: 0; font-size: 13px; color: var(--text-2); line-height: 1.45; overflow-wrap: anywhere; }
+.as-gc-counts { display: flex; flex-wrap: wrap; gap: 6px; }
+.as-gc-count { display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 0 7px; border-radius: 6px; font-size: 12px; }
+.as-gc-count b { font-weight: 650; }
+.as-gc-count.is-zero { background: var(--surface-2); color: var(--text-3); }
+.as-gc-count-l { font-weight: 500; }
+.as-gc-foot { display: flex; align-items: center; font-size: 12px; margin-top: auto; }
+.as-gc-open { display: inline-flex; align-items: center; gap: 4px; color: var(--text-2); font-weight: 500; }
+.as-group-card:hover .as-gc-open { color: var(--accent); }
+.as-results-title { font-size: 15px; font-weight: 600; margin: 4px 0 12px; }
+
+/* tables */
+.as-tip { display: flex; align-items: center; gap: 6px; margin: 0; padding: 10px 16px; border-top: 1px solid var(--border); font-size: 12px; }
+.as-ro-badge { display: inline-flex; align-items: center; gap: 4px; }
+.as-embed { margin: 16px 0; }
+.md .as-embed, .md-island .as-embed { font-size: 13px; line-height: 1.4; }
+.as-embed .agroup-title { font-size: 14.5px; margin: 0; }
+.as-embed .agroup-title a { text-decoration: none; }
+.as-embed .arow-head { top: var(--header-h); }
+.as-embed p, .as-embed h3 { margin: 0; }
+.as-repl-none { display: grid; place-items: center; border-radius: 6px; border: 1px dashed var(--border); font-size: 11px; }
+.as-repl-ro { cursor: default; }
+.as-text-ro { cursor: default; }
+.as-notes-ro { cursor: default; }
+.as-notes-ro:hover { border-color: transparent; background: transparent; }
+.as-repl-none-text { font-size: 12.5px; }
+.as-shot-skel { position: absolute; inset: 0; border-radius: 6px; }
+.as-shot-missing { padding: 40px 16px; font-size: 13px; text-align: center; }
+.pill.is-busy { opacity: .7; }
+.pill.is-busy .pill-caret { animation: as-pulse 1s ease-in-out infinite; }
+@keyframes as-pulse { 50% { opacity: .2; } }
+.arow.is-pending .ac-status::before { content: ""; }
+
+/* detail */
+.as-notes-label { margin-top: 14px; display: block; }
+.as-notes-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-height: 22px; }
+.as-notes-meta > span { flex: 1; min-width: 0; }
+.as-notes-read { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13.5px; line-height: 1.5; }
+.as-text-remove { margin-left: auto; }
+
+/* review history */
+.as-history { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.as-hist { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; }
+.as-hist-main { min-width: 0; }
+.as-hist-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 13px; }
+.as-hist-head time { font-size: 12px; }
+.as-hist-note { margin-top: 4px; font-size: 13px; color: var(--text-2); white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.45; }
+.as-hist-old { display: flex; align-items: center; gap: 4px; margin-top: 3px; font-size: 11.5px; }
+
+/* discussion */
+.as-discuss { display: flex; flex-direction: column; gap: 10px; }
+.as-discuss-empty { margin: 0; font-size: 13px; }
+.as-thread-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.as-thread { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: start; padding: 8px 10px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text); text-decoration: none !important; }
+.as-thread:hover { border-color: var(--border-strong); background: var(--surface-2); }
+.as-thread.is-closed { opacity: .75; }
+.as-thread-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.as-thread-title { font-size: 13px; line-height: 1.4; overflow-wrap: anywhere; }
+.as-thread-meta { font-size: 11.5px; }
+.as-closed-toggle { align-self: flex-start; font-size: 12.5px; }
+.as-comment-form { margin-top: 4px; display: flex; flex-direction: column; gap: 6px; }
+.as-comment-form .comment-form-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.as-hint { font-size: 11.5px; }
+
+@media (max-width: 720px) {
+  .as-head-actions { flex: 1 1 100%; }
+  .as-groups { grid-template-columns: minmax(0, 1fr); }
+  .as-filter-row .as-search { max-width: none; }
+  .as-detail .detail-title-row .btn-sm { padding: 0 8px; }
+  .as-tip { display: none; }
+}
+@media (max-width: 480px) {
+  .as-gc-count-l { display: none; }
+}

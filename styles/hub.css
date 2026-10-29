@@ -1,0 +1,84 @@
+/* Design Hub shell: top bar + left sidebar layout, landing, sign-in, home. Builds on tokens.css + app.css. */
+:root { --header-h: var(--topbar-h); --sidebar-w: 256px; }
+.hub-shell .topbar-inner { max-width: none; }
+.hub-body { flex: 1; display: block; min-width: 0; }
+.hub-body.has-sidebar { display: grid; grid-template-columns: var(--sidebar-w) minmax(0, 1fr); }
+.hub-sidebar { position: sticky; top: var(--topbar-h); align-self: start; height: calc(100vh - var(--topbar-h)); overflow-y: auto;
+  border-right: 1px solid var(--border); background: var(--surface-sunk, var(--bg)); scrollbar-width: thin; }
+.hub-main { min-width: 0; }
+.nav-toggle { margin-right: 2px; }
+.readonly-badge, .mock-badge { margin-left: 4px; display: inline-flex; align-items: center; gap: 4px; }
+
+/* sidebar nav */
+.nav { padding: 14px 10px 40px; display: flex; flex-direction: column; gap: 14px; }
+.nav-section { display: flex; flex-direction: column; gap: 2px; }
+.nav-head { display: flex; align-items: center; gap: 8px; padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;
+  color: var(--text-3); text-transform: uppercase; letter-spacing: .04em; text-decoration: none !important; }
+a.nav-head:hover { background: var(--hover); color: var(--text); }
+.nav-head.is-active { color: var(--text); background: var(--active); }
+.nav-head .tab-dot { margin-left: auto; }
+.nav-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1px; }
+.nav-group { font-size: 11px; color: var(--text-3); padding: 8px 10px 2px 30px; font-weight: 600; }
+.nav-link { display: flex; align-items: center; gap: 8px; padding: 6px 10px 6px 30px; border-radius: 6px; color: var(--text-2); font-size: 13.5px;
+  line-height: 1.35; text-decoration: none !important; position: relative; min-width: 0; }
+.nav-link:hover { background: var(--hover); color: var(--text); }
+.nav-link.is-active { background: var(--active); color: var(--text); font-weight: 500; }
+.nav-link.is-active::before { content: ""; position: absolute; left: 0; top: 7px; bottom: 7px; width: 2px; border-radius: 2px; background: var(--accent); }
+.nav-sub { padding-left: 44px; font-size: 13px; }
+.nav-text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nav-link .tab-dot { margin-left: auto; }
+.drawer .nav { padding: 4px 0 24px; }
+
+/* reload pill */
+.newchanges-pill { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px; border-radius: var(--r-pill);
+  border: 1px solid var(--accent-line, var(--accent)); background: var(--accent-soft); color: var(--text); font-size: 12.5px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+.newchanges-pill:hover { background: color-mix(in oklab, var(--accent-soft) 70%, var(--accent)); }
+@media (max-width: 560px) { .newchanges-pill span { display: none; } .newchanges-pill { padding: 0 9px; } .user-chip .user-name { display: none; } }
+
+.loading-block { padding: 64px 0; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.loading-block .boot-bar { width: 160px; }
+
+/* sign-in */
+.signin-card { max-width: 440px; }
+.gate-title { font-size: 21px; font-weight: 650; letter-spacing: -0.01em; margin: 18px 0 8px; }
+.gate-text { color: var(--text-2); font-size: 14px; line-height: 1.55; margin: 0 0 18px; }
+.gate-foot { font-size: 12.5px; margin: 14px 0 0; line-height: 1.5; }
+.signin-btn { gap: 10px; text-decoration: none !important; }
+.signin-msg { border-radius: 8px; padding: 10px 12px; font-size: 13.5px; margin: 0 0 14px; line-height: 1.45; }
+.signin-msg-info { background: var(--info-bg); }
+.signin-msg-warn { background: var(--warn-bg); }
+
+/* landing */
+.repo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.repo-card { display: flex; flex-direction: column; gap: 10px; color: var(--text); text-decoration: none !important; border-top: 3px solid var(--repo-accent, var(--accent));
+  transition: border-color var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast); }
+.repo-card + .repo-card { margin-top: 0; }
+.repo-card:hover { box-shadow: var(--shadow-pop); transform: translateY(-1px); }
+.repo-card-head { display: flex; align-items: center; gap: 12px; }
+.repo-card-mark { width: 36px; height: 36px; border-radius: 9px; display: grid; place-items: center; font-weight: 700; font-size: 17px;
+  background: color-mix(in oklab, var(--repo-accent) 20%, var(--surface)); color: var(--text); }
+.repo-card-main { flex: 1; min-width: 0; }
+.repo-card-name { font-weight: 600; font-size: 15px; }
+.repo-card-repo { font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.repo-card-tag { margin: 0; color: var(--text-2); font-size: 13.5px; line-height: 1.45; }
+.repo-card-foot { display: flex; align-items: center; gap: 8px; font-size: 12px; margin-top: auto; }
+
+/* home */
+.home-hero { margin-bottom: 22px; }
+.home-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; font-size: 12.5px; }
+.home-meta a { display: inline-flex; align-items: center; gap: 4px; }
+.home-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; align-items: start; }
+.home-grid .card + .card { margin-top: 0; }
+.home-wide { grid-column: 1 / -1; }
+.home-tab + .home-tab { margin-top: 12px; }
+.home-tab-title { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
+.home-links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13.5px; }
+.mini-feed { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.mini-feed li { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; font-size: 13.5px; }
+.mini-feed-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mini-feed time { font-size: 12px; white-space: nowrap; }
+
+@media (max-width: 640px) {
+  .container { padding: 20px 16px 56px; }
+  .home-grid { grid-template-columns: minmax(0, 1fr); }
+}

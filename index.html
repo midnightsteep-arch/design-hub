@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://avatars.githubusercontent.com; connect-src 'self' https://api.github.com https://design-hub-auth.example.workers.dev; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="no-referrer">
+<title>Design Hub</title>
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0f1013" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script src="app/boot.js"></script>
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/app.css">
+<link rel="stylesheet" href="styles/hub.css">
+<link rel="stylesheet" href="styles/pages.css">
+<link rel="stylesheet" href="styles/tuning.css">
+<link rel="stylesheet" href="styles/assets.css">
+<link rel="modulepreload" href="vendor/preact.module.js">
+<link rel="modulepreload" href="vendor/hooks.module.js">
+<link rel="modulepreload" href="vendor/htm.module.js">
+<link rel="modulepreload" href="app/main.js">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="app">
+  <div class="boot-splash" aria-busy="true" aria-label="Loading Design Hub"><div class="boot-bar"></div></div>
+</div>
+<div id="toasts" aria-live="polite" aria-atomic="false"></div>
+<noscript><p style="padding:24px;font:14px system-ui">Design Hub needs JavaScript enabled.</p></noscript>
+<script type="module" src="app/main.js"></script>
+</body>
+</html>

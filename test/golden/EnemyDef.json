@@ -1,0 +1,9 @@
+{
+  "table": "EnemyDef",
+  "rows": [
+    {"key":"Ab","name":"Upper","values":{}},
+    {"key":"b8x1k2","name":"Slime","values":{"hp":"45","speed":"2.5","tags":"[\"Fire\"]"}},
+    {"key":"b8x1k2/#0","name":"Slime › #0","values":{"hp":"1"}},
+    {"key":"zz9","name":"Zed \"Z\"","values":{"hp":"10","lore":"line1\nline2 é"}}
+  ]
+}
